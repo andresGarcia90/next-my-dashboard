@@ -8,7 +8,7 @@ interface Props {
 }
 
 export default function CardPokemon({ pokemon }: Props) {
-  const { id, name } = pokemon;
+  const { name } = pokemon;
 
   return (
     <div className="mx-auto right-0 mt-2 w-60">
@@ -29,7 +29,7 @@ export default function CardPokemon({ pokemon }: Props) {
           </p>
           <div className="mt-5">
             <Link
-              href={`dashboard/pokemon/${id}`}
+              href={`dashboard/pokemon/${name}`}
               className="border rounded-full py-2 px-4 text-xs font-semibold text-gray-100"
             >
               More Information
