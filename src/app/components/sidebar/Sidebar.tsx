@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { IoBrowsersOutline, IoCalculator, IoLogoReact } from 'react-icons/io5';
-import { SidebarMenuItem } from './SidebarMenuItem';
-import PokemonIcon from '../Icons/PokemonIcon';
+import { SidebarMenuItem } from '@/app/components';
+import PokemonIcon from '@/app/Icons/PokemonIcon';
 
 
 const menuItems = [

@@ -1,30 +1,28 @@
 'use client';
 
-import { useState } from 'react';
-
-interface Props {
-  value?: number;
-}
+import { useSelector, useDispatch } from 'react-redux'
+import { increment, decrement } from '@/app/store/counterSlice';
+import { RootState } from '@/app/store';
 
 
+export const CartCounter = () => {
 
-export const CartCounter = ({  value = 0 }: Props) => {
-
-  const [count, setCount] = useState(value);
+  const dispatch = useDispatch();
+  const value = useSelector((state: RootState) => state.counter.value);
 
   return (
     <>
-      <span className="text-9xl"> {count} </span>
+      <span className="text-9xl"> {value} </span>
 
       <div className="flex">
         <button
-          onClick={() => setCount(count + 1)}
+          onClick={() => dispatch(increment())}
           className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] mr-2">
           +1
         </button>
 
         <button
-          onClick={() => setCount(count - 1)}
+          onClick={() => dispatch(decrement())}
           className="flex items-center justify-center p-2 rounded-xl bg-gray-900 text-white hover:bg-gray-600 transition-all w-[100px] mr-2">
           -1
         </button>

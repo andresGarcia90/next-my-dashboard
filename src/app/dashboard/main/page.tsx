@@ -1,8 +1,9 @@
+import {  WidgetsGrid } from "@/app/components/";
 
 export default function MainPage() {
   return (
-    <div>
-      <h1>Hello Page Main</h1>
+    <div className="flex flex-col items-center p-2">
+      <WidgetsGrid />
     </div>
   );
 }
