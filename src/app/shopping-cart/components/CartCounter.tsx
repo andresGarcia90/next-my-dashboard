@@ -1,14 +1,33 @@
 'use client';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement } from '@/app/store/counterSlice';
+import { increment, decrement, initCounterState } from '@/app/store/counterSlice';
 import { RootState } from '@/app/store';
+import { useEffect } from 'react';
+
+export interface CounterResponse {
+  method: string;
+  count: number;
+}
+
+const getApiCounter = async (): Promise<CounterResponse> => {
+  const data = await fetch("/api/counter").then(res => res.json())
+  return data;
+}
 
 
 export const CartCounter = () => {
 
   const dispatch = useDispatch();
   const value = useSelector((state: RootState) => state.counter.value);
+
+  useEffect(() => {
+    getApiCounter().then(({count}) => dispatch(initCounterState(count)));
+    
+    
+  }, [dispatch])
+  
+
 
   return (
     <>
