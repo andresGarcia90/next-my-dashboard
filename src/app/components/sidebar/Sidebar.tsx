@@ -19,7 +19,7 @@ const menuItems = [
   },
   {
     path: '/dashboard/pokemons',
-    icon: <PokemonIcon size={40} />,
+    icon: <PokemonIcon size={90} className="w-10 h-10" />,
     title: 'Pokemons',
     subTitle: 'List of Pokemons'
   },

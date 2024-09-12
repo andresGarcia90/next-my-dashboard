@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { SimplePokemon } from "@/app/pokemons";
+import { localStorageMiddleware } from "../middleware/localstorage-middleware";
 
 interface PokemonsState { 
   favorites: { [key: string]: SimplePokemon },
@@ -12,6 +13,7 @@ const initialState: PokemonsState = {
 const pokemonSlice = createSlice({
   name: 'pokemons',
   initialState,
+  
   reducers: {
     toggleFavorite( state, action: PayloadAction<SimplePokemon> )  {
 
@@ -29,7 +31,8 @@ const pokemonSlice = createSlice({
       // localStorage.setItem('favorite-pokemons', JSON.stringify( state.favorites ) );
 
     }
-  }
+  },
+  
 })
 
 export const {toggleFavorite} = pokemonSlice.actions;
